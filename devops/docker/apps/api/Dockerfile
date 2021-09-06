@@ -12,5 +12,5 @@ WORKDIR /sequelize-api/
 #install node dependencies
 RUN npm install
 
-#build cmd: docker build --rm -t sequelize-api -f ./devops/docker/apps/api/Dockerfile .
-#run cmd: docker run -d -w /sequelize-api/ --name sequelize-api -p 8000:8000 sequelize-api node index.js
+#build: docker build --rm -t sequelize-api -f ./devops/docker/apps/api/Dockerfile .
+#run: docker run -d -w /sequelize-api/ --name sequelize-api -p 8000:8000 --env-file devops/docker/apps/api/.env sequelize-api node index.js

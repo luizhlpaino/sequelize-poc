@@ -1,4 +1,6 @@
 const express = require("express");
+
+const config = require("./config");
 const routes = require("./src/routes");
 
 const app = express();
@@ -11,11 +13,12 @@ routes.forEach(route => {
 
 app.get("/", (req, res) => {
     res.status(200).send({
-        description: "Avaiable Routes",
+        description: "API Avaiable Routes",
+        environment: config.environment,
         routes
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+app.listen(config.port, () => {
+    console.log(`${config.environment} server listening on http://${config.url}:${config.port}`);
 });
